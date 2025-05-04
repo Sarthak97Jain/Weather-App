@@ -6,11 +6,13 @@ const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 export const useFetchWeatherData = (city) => {
     const [response ,setResponse] = useState(null);
     const [error , setError] = useState(null);
+    const [loading , setLoading] = useState(false);
     const url = `${baseUrl}current.json?q=${city}&key=${apiKey}`;
     useEffect(()=>{
         if (!city) return;
         const fetchData = async() => {
             setError(null);
+            setLoading(true)
             try{
                 const response = await axios.get(url);
                 setResponse(response);
@@ -19,8 +21,9 @@ export const useFetchWeatherData = (city) => {
                 setError( error?.response?.data?.error?.message);
                 console.error("Fetch error:", error?.response?.data?.error?.message)
             }
+            setLoading(false);
         }
         fetchData();
     },[city])
-    return {response , error};
+    return {response , error ,loading};
 }
