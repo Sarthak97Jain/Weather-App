@@ -1,0 +1,39 @@
+.weatherComponent {
+  .weartherCard {
+    .loader {
+      display: flex;
+      justify-content: center;
+      padding-top: 2rem;
+    }
+  }
+}
+.cityInputSection{
+  position: relative;
+}
+.cityListDropdown{
+  position: absolute;
+  top: 102%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.cityListDropdownItem{
+  padding: 1px 5px;
+  cursor: pointer;
+  border-top: 1px solid #eee;
+  transition: background 0.2s ease;
+}
+.dropdown-item:hover {
+  background-color: #f2f2f2;
+}
+.cityListDropdownUL{
+  padding: 0;
+  margin:0;
+}
